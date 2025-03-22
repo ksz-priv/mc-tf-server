@@ -1,0 +1,26 @@
+#cloud-config
+package_update: true
+packages:
+  - openjdk-21-jre-headless
+  - jq
+  - screen
+
+write_files:
+  - path: /opt/minecraft/setup.sh
+    owner: root:root
+    permissions: "0755"
+    content: |
+      #!/bin/bash
+      mkdir -p /opt/minecraft
+      curl -s https://launchermeta.mojang.com/mc/game/version_manifest.json -o /tmp/version_manifest.json
+      LATEST_VER=$(jq -r '.latest.release' /tmp/version_manifest.json)
+      VERSION_URL=$(jq -r --arg VER "$LATEST_VER" '.versions[] | select(.id == $VER) | .url' /tmp/version_manifest.json)
+      curl -s $VERSION_URL -o /tmp/version.json
+      DL_URL=$(jq -r '.downloads.server.url' /tmp/version.json)
+      wget -O /opt/minecraft/server.jar $DL_URL
+      echo eula=true > /opt/minecraft/eula.txt
+      sleep 10
+      screen -dmS mc java -Xmx1024M -Xms1024M -jar /opt/minecraft/server.jar nogui
+
+runcmd:
+  - bash -c "sleep 60 && /opt/minecraft/setup.sh"

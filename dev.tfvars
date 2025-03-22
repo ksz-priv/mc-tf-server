@@ -1,0 +1,16 @@
+#DEV
+environment            = "dev"
+location               = "Poland Central"
+resource_group_name    = "mc-dev-rg"
+vnet_name              = "mc-dev-vnet"
+vnet_address_space     = "10.1.0.0/16"
+subnet_name            = "mc-dev-subnet"
+subnet_address_prefix  = "10.1.0.0/24"
+public_ip_name         = "mc-dev-pip"
+nsg_name               = "mc-dev-nsg"
+network_interface_name = "mc-dev-nic"
+vm_name                = "mc-dev-vm"
+vm_size                = "Standard_B1s"
+admin_username         = "mcadmin"
+admin_public_key       = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD...replace_with_your_public_key..."
+minecraft_port         = 25565
