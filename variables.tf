@@ -58,3 +58,7 @@ variable "minecraft_port" {
   description = "Port number for the Minecraft server"
   type        = number
 }
+variable "dns_label" {
+  description = "Subdomain to Azure public IP label"
+  type        = string
+}

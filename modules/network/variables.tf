@@ -42,3 +42,7 @@ variable "minecraft_port" {
   description = "Minecraft server port to allow in NSG"
   type        = number
 }
+variable "dns_label" {
+  description = "Subdomain to Azure public IP label"
+  type        = string
+}

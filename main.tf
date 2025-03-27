@@ -30,6 +30,7 @@ module "network" {
   subnet_address_prefix = var.subnet_address_prefix
 
   public_ip_name         = var.public_ip_name
+  dns_label              = var.dns_label
   nsg_name               = var.nsg_name
   network_interface_name = var.network_interface_name
 

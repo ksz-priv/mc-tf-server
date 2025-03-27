@@ -14,3 +14,4 @@ vm_size                = "Standard_B2s"
 admin_username         = "mcadmin"
 admin_public_key       = "ssh-rsa key"
 minecraft_port         = 25565
+dns_label              = "ksz-mc-prod"

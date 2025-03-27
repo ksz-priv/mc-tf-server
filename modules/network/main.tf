@@ -49,6 +49,7 @@ resource "azurerm_public_ip" "this" {
   location            = var.location
   resource_group_name = var.resource_group_name
   allocation_method   = "Static"
+  domain_name_label   = var.dns_label
   sku                 = "Standard"
   tags                = local.tags
 }
